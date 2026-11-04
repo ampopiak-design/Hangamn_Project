@@ -20,7 +20,8 @@ import random
 import sys
 
 menu=""""
-Select Your Difficulty:
+Welcome to the Hangman Gallery!
+Please Select Your Difficulty, and type in the designated number:
 
 1. Easy
 2. Medium
@@ -33,11 +34,17 @@ Enter your choice: """
 difficulty=int(input(menu))
 print(difficulty)
 
+word_random = ""
+
 if difficulty == 1:
     print("easy")
+    easy_word_random = random.sample(easy_words, 1)[0]
+    print('_ '* len(easy_word_random))
+
 elif difficulty == 2:
     print("medium")
-    print(random.sample(medium_words, 1)[0])
+    print("-" * len(word_random))
+    print(len(random.sample(medium_words, 1)[0]))
 
 elif  difficulty == 3:
     print("hard")
