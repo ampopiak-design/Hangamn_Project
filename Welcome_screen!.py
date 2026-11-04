@@ -1,4 +1,5 @@
 import random
+import sys
 
 medium_words = ["cabinets", "earrings", "jamaican", "laboring", "church", "author", "budget", "doctor", "degree", "bishop"]
 hard_words = ["political", "pyruvate", "earthworm", "countries", "chocolate", "education", "scratched", "committee", "abandoned"]
@@ -19,7 +20,6 @@ easy_words = ["bake", "exit", "cool", "race", "tide", "beam", "fry", "pit", "jug
 │                                        │
 ╚────────────────────────────────────────╝
 """
-import sys
 
 menu=""""
 Welcome to the Hangman Gallery!
