@@ -1,6 +1,6 @@
 import random
 import sys
-
+import Hanging_man
 medium_words = ["cabinets", "earrings", "jamaican", "laboring", "church", "author", "budget", "doctor", "degree", "bishop"]
 hard_words = ["political", "pyruvate", "earthworm", "countries", "chocolate", "education", "scratched", "committee", "abandoned"]
 easy_words = ["bake", "exit", "cool", "race", "tide", "beam", "fry", "pit", "jug", "rap"]
@@ -73,7 +73,50 @@ elif  difficulty == 3:
     """)
     print("Difficulty Selected: hard")
     hard_word_random = random.sample(hard_words, 1)[0]
-    print("_" * len(hard_word_random))
+    secret_word=( "_ " * len(hard_word_random))
+    print("Secret Word: " + secret_word)
 else:
     print("quit")
     sys.exit(0)
+HANGMAN_PICS = ['''
+   +---+
+       |
+       |
+       |     
+      ===''', '''
+   +---+
+   O   |
+       |
+       |
+      ===''', '''
+   +---+
+   O   |
+   |   |
+       |
+      ===''', '''
+   +---+
+    O   |
+   /|   |
+        |
+       ===''', '''
+    +---+
+    O   |
+   /|\  |
+       |
+       ===''', '''
+    +---+
+   O   |
+  /|\  |
+  /    |
+      ===''', '''
+   +---+
+   O   |
+  /|\  |
+  / \  |
+      ===''']
+print(HANGMAN_PICS[0])
+incorrect_guess = int("0 / 6")
+print(incorrect_guess)
+remaining_att = int("6")
+print(remaining_att)
+guesses = (input("Guess a letter:"))
