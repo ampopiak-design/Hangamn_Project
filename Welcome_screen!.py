@@ -48,7 +48,8 @@ if difficulty == 1:
     """)
     print("Difficulty Selected: easy")
     easy_word_random = random.sample(easy_words, 1)[0]
-    print('_'* len(easy_word_random))
+    secret_word1 = ("_ " * len(easy_word_random))
+    print("Secret Word: " + secret_word1)
 
 elif difficulty == 2:
     print("""
@@ -60,7 +61,8 @@ elif difficulty == 2:
     """)
     print("Difficulty Selected: medium")
     medium_word_random = random.sample(medium_words, 1)[0]
-    print("_" * len(medium_word_random))
+    secret_word2 = ("_ " * len(medium_word_random))
+    print("Secret Word: " + secret_word2)
 
 
 elif  difficulty == 3:
@@ -73,50 +75,53 @@ elif  difficulty == 3:
     """)
     print("Difficulty Selected: hard")
     hard_word_random = random.sample(hard_words, 1)[0]
-    secret_word=( "_ " * len(hard_word_random))
-    print("Secret Word: " + secret_word)
+    secret_word3 =( "_ " * len(hard_word_random))
+    print("Secret Word: " + secret_word3)
 else:
     print("quit")
     sys.exit(0)
-HANGMAN_PICS = ['''
+HANGMAN_PICS = [r'''
    +---+
        |
        |
        |     
-      ===''', '''
+      ===''', r'''
    +---+
    O   |
        |
        |
-      ===''', '''
+      ===''', r'''
    +---+
    O   |
    |   |
        |
-      ===''', '''
+      ===''', r'''
    +---+
     O   |
    /|   |
         |
-       ===''', '''
+       ===''', r'''
     +---+
     O   |
    /|\  |
        |
-       ===''', '''
+       ===''', r'''
     +---+
    O   |
   /|\  |
   /    |
-      ===''', '''
+      ===''', r'''
    +---+
    O   |
   /|\  |
   / \  |
       ===''']
 print(HANGMAN_PICS[0])
-incorrect_guess = int("0 / 6")
+def displayBoard(missedLetters, correctLetters, secretWord):
+    print(HANGMAN_PICS[len(missedLetters)])
+    print()
+incorrect_guess = (f"Incorrect guesses {0}" )
 print(incorrect_guess)
-remaining_att = int("6")
+remaining_att = (f"Remaing Attempts: {6}")
 print(remaining_att)
-guesses = (input("Guess a letter:"))
+guesses = (input("Guess a letter: "))
