@@ -134,15 +134,16 @@ remaining_att = 6
 print(f"Remaining Attempts: {remaining_att}")
 
 # While loop starts here
-guesses = (input("Guess a letter: "))
-if guesses in word_random:
-    print(True)
+while True:
     guesses = (input("Guess a letter: "))
-else:
-    print(False)
-    remaining_att -= 1
-    print(remaining_att)
-    incorrect_guess += 1
-    print(incorrect_guess)
-    print(HANGMAN_PICS[incorrect_guess])
-    print(input("Guess again:"))
+
+    # Guess checker
+    if guesses in word_random:
+        print(True)
+    else:
+        print(False)
+        remaining_att -= 1
+        print(remaining_att)
+        incorrect_guess += 1
+        print(incorrect_guess)
+        print(HANGMAN_PICS[incorrect_guess])
