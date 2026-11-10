@@ -128,16 +128,21 @@ def displayBoard(incorrect_guess, correctLetters, secretWord):
     print()
 
 
-incorrect_guess = int(0)
+incorrect_guess = 0
 print(f"Incorrect Guess: {incorrect_guess}")
-remaining_att = int(6)
+remaining_att = 6
 print(f"Remaining Attempts: {remaining_att}")
+
+# While loop starts here
 guesses = (input("Guess a letter: "))
-#while:
-    #print(True)
-    #print(input("Guess again:"))
-#else:
-    #print(False)
-    #incorrect_guess += 1
-    #print(HANGMAN_PICS[1])
-    #print(input("Guess again:"))
+if guesses in word_random:
+    print(True)
+    guesses = (input("Guess a letter: "))
+else:
+    print(False)
+    remaining_att -= 1
+    print(remaining_att)
+    incorrect_guess += 1
+    print(incorrect_guess)
+    print(HANGMAN_PICS[incorrect_guess])
+    print(input("Guess again:"))
