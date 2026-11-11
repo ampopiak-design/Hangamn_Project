@@ -52,9 +52,6 @@ if difficulty == 1:
     """)
     print("Difficulty Selected: easy")
     word_random = random.sample(easy_words, 1)[0]
-    secret_word = ("_ " * len(word_random))
-    print("Secret Word: " + secret_word)
-
 elif difficulty == 2:
     print("""
     ╔────────────────────────────────────────╗
@@ -65,10 +62,6 @@ elif difficulty == 2:
     """)
     print("Difficulty Selected: medium")
     word_random = random.sample(medium_words, 1)[0]
-    secret_word = ("_ " * len(word_random))
-    print("Secret Word: " + secret_word)
-
-
 elif difficulty == 3:
     print("""
     ╔────────────────────────────────────────╗
@@ -79,11 +72,13 @@ elif difficulty == 3:
     """)
     print("Difficulty Selected: hard")
     word_random = random.sample(hard_words, 1)[0]
-    secret_word = ("_ " * len(word_random))
-    print("Secret Word: " + secret_word)
 else:
     print("quit")
     sys.exit(0)
+
+secret_word = ["_"] * len(word_random)
+print(secret_word)
+
 HANGMAN_PICS = [r'''
    +---+
        |
@@ -139,7 +134,9 @@ while True:
 
     # Guess checker
     if guesses in word_random:
-        print(True)
+        for i in range(len(word_random)):
+             if word_random[i]==guesses:
+                 secret_word[i] = guesses
     else:
         print(False)
         remaining_att -= 1
@@ -147,3 +144,6 @@ while True:
         incorrect_guess += 1
         print(incorrect_guess)
         print(HANGMAN_PICS[incorrect_guess])
+
+    print(secret_word)
+
