@@ -43,39 +43,25 @@ print(difficulty)
 
 # If statement to choose difficulty
 if difficulty == 1:
-    print("""
-    ╔────────────────────────────────────────╗
-    │                                        │
-    │               Start Game!              │
-    │                                        │
-    ╚────────────────────────────────────────╝
-    """)
     print("Difficulty Selected: easy")
     word_random = random.sample(easy_words, 1)[0]
 elif difficulty == 2:
-    print("""
-    ╔────────────────────────────────────────╗
-    │                                        │
-    │               Start Game!              │
-    │                                        │
-    ╚────────────────────────────────────────╝
-    """)
     print("Difficulty Selected: medium")
     word_random = random.sample(medium_words, 1)[0]
 elif difficulty == 3:
-    print("""
-    ╔────────────────────────────────────────╗
-    │                                        │
-    │               Start Game!              │
-    │                                        │
-    ╚────────────────────────────────────────╝
-    """)
     print("Difficulty Selected: hard")
     word_random = random.sample(hard_words, 1)[0]
 else:
     print("quit")
     sys.exit(0)
 
+print("""
+╔────────────────────────────────────────╗
+│                                        │
+│               Start Game!              │
+│                                        │
+╚────────────────────────────────────────╝
+""")
 secret_word = ["_"] * len(word_random)
 print(secret_word)
 
