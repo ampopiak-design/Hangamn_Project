@@ -1,6 +1,7 @@
 import random
 import sys
-import Hanging_man
+
+from Hangman_backup import word_random
 
 medium_words = ["cabinets", "earrings", "jamaican", "laboring", "church", "author", "budget", "doctor", "degree",
                 "bishop"]
@@ -16,7 +17,7 @@ print("""
 │                                        │
 │      Thank you for stopping by         │
 │         The Popiak Yohannes            │
-│              Game Consule              │
+│              Game Console              │
 │                                        │
 │      We Hope you enjoy HANGMAN!        │
 │     CODE BY: Anastasia & Isabella      │
@@ -39,37 +40,41 @@ Enter your choice: """
 
 # Give user chance to select difficulty
 difficulty = int(input(menu))
-print(difficulty)
 
-# If statement to choose difficulty
-if difficulty == 1:
-    print("Difficulty Selected: easy")
-    word_random = random.sample(easy_words, 1)[0]
-elif difficulty == 2:
-    print("Difficulty Selected: medium")
-    word_random = random.sample(medium_words, 1)[0]
-elif difficulty == 3:
-    print("Difficulty Selected: hard")
-    word_random = random.sample(hard_words, 1)[0]
-else:
-    print("quit")
-    sys.exit(0)
+def select_random_word(difficulty):
+    # If statement to choose difficulty
+    if difficulty == 1:
+        level = ("easy")
+        word_random = random.choice(easy_words)
+    elif difficulty == 2:
+        level = ("medium")
+        word_random = random.choice(medium_words)
 
+    elif difficulty == 3:
+        level = ("hard")
+        word_random = random.choice(hard_words)
+    else:
+        print("quit")
+        sys.exit(0)
+    return word_random
+win = 0
+losses = 0
 print("""
-╔────────────────────────────────────────╗
-│                                        │
-│               Start Game!              │
-│                                        │
-╚────────────────────────────────────────╝
-""")
-secret_word = ["_"] * len(word_random)
-print(secret_word)
+   ╔────────────────────────────────────────╗
+   │                                        │
+   │               Start Game!              │
+   │                                        │
+   ╚────────────────────────────────────────╝
+   """)
 
+word_random = select_random_word(difficulty)
+secret_word = ("_ " * len(word_random))
+#print("Difficulty Selected: " + level)
 HANGMAN_PICS = [r'''
    +---+
        |
        |
-       |     
+       |
       ===''', r'''
    +---+
    O   |
@@ -82,16 +87,16 @@ HANGMAN_PICS = [r'''
        |
       ===''', r'''
    +---+
-    O   |
-   /|   |
-        |
-       ===''', r'''
-    +---+
-    O   |
-   /|\  |
+   O   |
+  /|   |
        |
-       ===''', r'''
-    +---+
+      ===''', r'''
+   +---+
+   O   |
+  /|\  |
+       |
+      ===''', r'''
+   +---+
    O   |
   /|\  |
   /    |
@@ -104,32 +109,42 @@ HANGMAN_PICS = [r'''
 #print(HANGMAN_PICS[0])
 
 
-def displayBoard(incorrect_guess, correctLetters, secretWord):
-    print(HANGMAN_PICS[len(incorrect_guess)])
-    print()
-
-
 incorrect_guess = 0
-print(f"Incorrect Guess: {incorrect_guess}")
 remaining_att = 6
-print(f"Remaining Attempts: {remaining_att}")
-
+guessed_letters = []
 # While loop starts here
 while True:
-    guesses = (input("Guess a letter: "))
+    print(HANGMAN_PICS[incorrect_guess])
+    secret_word = ""
+    for letter in word_random:
+        if letter in guessed_letters:
+            secret_word += letter + " "
+        else:
+            secret_word += "_ "
+    print("Secret word: " + secret_word)
+    print(f"Incorrect Guess: {incorrect_guess}")
+    print(f"Remaining attempts: {remaining_att}")
+    print(guessed_letters)
+    if "_" not in secret_word:
+        print("You win and figured out the word was: " + word_random)
+        break
+        #print(input("Would you like tp play again?Y/n"))
+        #if "Y":
+    if remaining_att == 0:
+        print("You hung the man. The word was: " + word_random)
+        break
+        #print(input("Would you like to play again?Y/n"))
 
+
+    guesses = (input("Guess a letter: "))
+    if guesses in guessed_letters:
+        print("You already guessed '" + guesses + "'. Try something else.")
+        continue
+    guessed_letters.append(guesses)
     # Guess checker
     if guesses in word_random:
-        for i in range(len(word_random)):
-             if word_random[i]==guesses:
-                 secret_word[i] = guesses
+        print(guesses + "' is in the word!")
     else:
-        print(False)
+        print(guesses + " is not in the word.")
         remaining_att -= 1
-        print(remaining_att)
         incorrect_guess += 1
-        print(incorrect_guess)
-        print(HANGMAN_PICS[incorrect_guess])
-
-    print(secret_word)
-
