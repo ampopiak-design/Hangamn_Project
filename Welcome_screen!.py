@@ -127,24 +127,24 @@ while True:
     print(guessed_letters)
     if "_" not in secret_word:
         print("You win and figured out the word was: " + word_random)
+        question = input("Would you like tp play again?Y/n")
+        #if question == "Y":
+
         break
-        #print(input("Would you like tp play again?Y/n"))
-        #if "Y":
     if remaining_att == 0:
         print("You hung the man. The word was: " + word_random)
         break
-        #print(input("Would you like to play again?Y/n"))
+        print(input("Would you like to play again?Y/n"))
 
-
-    guesses = (input("Guess a letter: "))
-    if guesses in guessed_letters:
-        print("You already guessed '" + guesses + "'. Try something else.")
-        continue
-    guessed_letters.append(guesses)
-    # Guess checker
-    if guesses in word_random:
-        print(guesses + "' is in the word!")
-    else:
-        print(guesses + " is not in the word.")
-        remaining_att -= 1
-        incorrect_guess += 1
+# def check_guess(guesses, remaining_att=None, incorrect_guess=None):
+#     guesses = (input("Guess a letter: "))
+#     if guesses in guessed_letters:
+#         print("You already guessed '" + guesses + "'. Try something else.")
+#     guessed_letters.append(guesses)
+#     # Guess checker
+#     if guesses in word_random:
+#         print(guesses + "' is in the word!")
+#     else:
+#         print(guesses + " is not in the word.")
+#         remaining_att -= 1
+#         incorrect_guess += 1
