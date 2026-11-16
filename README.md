@@ -41,7 +41,7 @@ The application uses Python functions, conditional statements, loops, lists, and
 
 1. The program welcomes the player to the Popiak Yohannes Game Console.
 2. The player selects a difficulty level.
-3. The program randomly selects a word from the corresponding word bank.
+3. The program randomly selects a word from the word bank.
 4. The player enters letter guesses through the console.
 5. The program checks whether each guessed letter appears in the secret word.
 6. Correct guesses reveal the matching letters, while incorrect guesses update the Hangman drawing and remaining attempts.
@@ -51,18 +51,15 @@ The application uses Python functions, conditional statements, loops, lists, and
 ## How to Run
 
 1. Make sure Python is installed on your computer.
-2. Download or clone the project repository.
-3. Open the project in your preferred Python IDE.
-4. Make sure the `Hanging_man.py` module is included in the same project directory.
-5. Run the main Python file.
-6. Follow the instructions displayed in the console.
+2. Downloadthe project repository.
+3. Make sure the `Hanging_man.py` is included in the same project directory.
+4. Run the main Python file.
+5. Follow the instructions displayed in the console.
 
 **Requirements:**
 - Python 3
 - The `random` and `sys` standard-library modules
 - The accompanying `Hanging_man.py` file
-
-No additional third-party packages are required.
 
 ## Code Structure
 
@@ -101,7 +98,7 @@ Throughout development, we encountered several challenges that required debuggin
 ### 1. Importing Functions and Modules
 
 - One of our challenges was figuring out how to import functions from another Python file.
-- We initially had trouble passing information between our main file and the imported module.
+- We initially had trouble with commeted out lines passing information between our main file and the imported module.
 - We had to understand how imports work and how functions can communicate across separate files.
 
 ### 2. Debugging
@@ -114,7 +111,7 @@ Throughout development, we encountered several challenges that required debuggin
 
 - Getting user inputs to work correctly was another challenge.
 - We had to figure out how to accept the player's difficulty selection and letter guesses.
-- We also had to account for repeated guesses and make sure the program responded appropriately.
+- We also had to account for repeated guesses and make sure the program took all into account.
 
 ### 4. Creating Custom Functions
 
